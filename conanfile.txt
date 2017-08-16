@@ -1,0 +1,6 @@
+[requires]
+rttr/0.9.5@weatherhead99/testing
+
+[generators]
+cmake
+

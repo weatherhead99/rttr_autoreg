@@ -1,0 +1,23 @@
+project(rttr_autoreg)
+cmake_Minimum_required(VERSION 3.2)
+
+if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+  include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+  message(WARNING "found conanbuildinfo, using conan libraries for build")
+  conan_basic_setup()
+endif()
+
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake/)
+message(STATUS ${CMAKE_MODULE_PATH})
+
+
+find_package(rttr REQUIRED)
+find_package(LibClang REQUIRED)
+
+message(${LIBCLANG_LIBDIR})
+
+
+add_executable(libclang_play libclang_play.cpp)
+target_link_libraries(libclang_play ${LIBCLANG_LIBRARIES})
+target_include_directories(libclang_play PRIVATE ${LIBCLANG_LIBDIR})
