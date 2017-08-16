@@ -1,0 +1,9 @@
+steps:
+
+1) extract all class definitions
+2) find RTTR_ENABLE in the class - mark for further processing,
+3) or else, find comment tag in the class - mark  for further processing
+
+
+4) for each found class, find all method definition
+5) for each 
